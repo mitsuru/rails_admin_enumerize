@@ -1,0 +1,11 @@
+
+en:
+  admin:
+    actions:
+      enumerize:
+        title: "Enumerize"
+        menu: "Enumerize for %{model_label} '%{object_label}'"
+        breadcrumb: "Enumerize"
+        link: "Enumerize"
+        bulk_link: "Enumerize selected %{model_label_plural}"
+        done: "Enumerizeed"
