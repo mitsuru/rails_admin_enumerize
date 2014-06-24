@@ -21,7 +21,8 @@ module RailsAdmin
                 v.html_safe,
                 enumerize_path(model_name: @abstract_model, id: bindings[:object].id, method: name, value: v),
                 class: 'btn btn-info btn-mini' + (v == value ? ' active' : ''),
-                method: :post
+                method: :post,
+                onclick: 'var $t = $(this); $t.html("<i class=\"fa fa-spinner fa-spin\"></i>"); $.ajax({type: "POST", url: $t.attr("href"), data: {ajax:true}, success: function(r) {  }, error: function(e) { console.log(e); }}); return false;'
               )
             end
             bindings[:view].content_tag(:div, btns.join('').html_safe, class: 'btn-group alignment', :data => {toggle: 'buttons-radio' }).html_safe
