@@ -26,6 +26,21 @@ module RailsAdmin
 
         register_instance_option :controller do
           proc do
+            if params['id'].present?
+              begin
+                @object = @abstract_model.model.find(params['id'])
+                @meth = params[:method]
+                @object.send(@meth + '=', params[:value])
+                if @object.save
+                  if params['ajax'].present?
+                  else
+                    flash[:success] = I18n.t('admin.enumerize.updated', attr: @meth)
+                  end
+                end
+              end
+            end
+
+            redirect_to :back unless params['ajax'].present?
           end
         end
 
