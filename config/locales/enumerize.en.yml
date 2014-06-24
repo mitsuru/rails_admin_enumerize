@@ -9,3 +9,7 @@ en:
         link: "Enumerize"
         bulk_link: "Enumerize selected %{model_label_plural}"
         done: "Enumerizeed"
+    enumerize:
+      updated: '"%{attr}" updated'
+      error: "Error: %{err}"
+      no_id: No ID provided
