@@ -30,7 +30,7 @@ module RailsAdmin
             result = ''
             btns = options.map do |k,v|
               bindings[:view].link_to(
-                v.html_safe,
+                k.html_safe,
                 enumerize_path(model_name: @abstract_model, id: bindings[:object].id, method: name, value: v),
                 class: 'btn btn-info btn-mini' + (v == value ? ' active' : ''),
                 onclick: 'var $t = $(this); $t.html("<i class=\"fa fa-spinner fa-spin\"></i>"); $.ajax({type: "POST", url: $t.attr("href"), data: {ajax:true}, success: function(r) { $t.attr("href", r.href); $t.attr("class", r.class + " active"); $t.text(r.text); }, error: function(e) { console.log(e); }}); return false;'

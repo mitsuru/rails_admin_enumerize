@@ -41,7 +41,7 @@ module RailsAdmin
                 @object.send(@meth + '=', params[:value])
                 if @object.save
                   if params['ajax'].present?
-                    ajax_link.call(params[:value], params[:value], '')
+                    ajax_link.call(@object.send(@meth).text, params[:value], '')
                   else
                     flash[:success] = I18n.t('admin.enumerize.updated', attr: @meth)
                   end
