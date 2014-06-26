@@ -13,6 +13,10 @@ module RailsAdmin
             :check_box
           end
 
+          register_instance_option :partial do
+            :form_enumeration
+          end
+
           register_instance_option :enum_method do
             @enum_method ||= bindings[:object].class.respond_to?("#{name}_enum") || bindings[:object].respond_to?("#{name}_enum") ? "#{name}_enum" : name
           end
